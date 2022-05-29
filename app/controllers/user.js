@@ -9,7 +9,6 @@ exports.signUp = (req, res, next) => {
                 email: req.body.email,
                 password: hash
             });
-            console.log(hash);
 
             user.save()
                 .then(() => { res.status(201).json({ message: "Utilisateur créé" }) })
@@ -38,8 +37,6 @@ exports.login = (req, res, next) => {
                     });
                 })
                 .catch((error) => {
-
-                    console.log(error);
                     res.status(500).json({ error })
                 });
         })

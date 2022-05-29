@@ -1,7 +1,6 @@
 const Product = require('../models/Product');
 
 exports.createProduct = (req, res, next) => {
-    console.log("post");
     const product = new Product({
         ...req.body
     });
@@ -23,16 +22,12 @@ exports.getProduct =  (req, res, next) => {
 };
 
 exports.modifyProduct = (req, res, next) => {
-    console.log("put product");
-
     Product.updateOne({ _id: req.params.id }, { ...req.body, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Product modifié !' }))
         .catch(error => res.status(400).json({ error }));
 };
 
 exports.deleteProduct = (req, res, next) => {
-    console.log("delete product");
-
     Product.remove({ _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet Supprimé !' }))
         .catch(error => res.status(400).json({ error }));
