@@ -38,4 +38,4 @@ jobs:
     - name: Install Dependencies
       run: npm install
     - name: Run Tests
-      run: mocha --recursive
+      run: npm test
