@@ -31,6 +31,7 @@ jobs:
       uses: supercharge/mongodb-github-action@1.7.0
       with:
         mongodb-version: 5.x
+        mongodb-port: 27017
 
     - name: Install mocha and chai
       run: npm install -g mocha chai
